@@ -129,18 +129,108 @@ public:
 	}
 };
 
+class AUDI : public Hybrid
+{
+public:
+	void wheelCount()
+	{
+		cout << "Enter amountof whell on your audi: ";
+		cin >> wheel;
+		cout << "You have " << wheel << " wheels" << endl;
+	}
+	void radius()
+	{
+		cout << "Enter  whell radius on your audi: ";
+		cin >> wheelradius;
+		cout << "You have " << wheelradius << " radius" << endl;
+	}
+
+	void enginesound() override
+	{
+		cout << "Audi roar is here" << endl;
+	}
+	void checkColor()
+	{
+		string color;
+		cout << "What is your car color?" << endl;
+		cin >> color;
+		cout << "Your R8V10 is " << color;
+	}
+
+private:
+	string vin;
+	int wheelradius;
+	int wheel;
+
+};
+
+class Tesla :public Electro
+{
+public:
+	void wheelCount()
+	{
+		cout << "Enter amountof whell on your audi: ";
+		cin >> wheel;
+		cout << "You have " << wheel << " wheels" << endl;
+	}
+	void radius()
+	{
+		cout << "Enter  whell radius on your audi: ";
+		cin >> wheelradius;
+		cout << "You have " << wheelradius << " radius" << endl;
+	}
+
+	void enginesound() override
+	{
+		cout << "Tesla roar is here" << endl;
+	}
+	void checkColor()
+	{
+		string color;
+		cout << "What is your car color?" << endl;
+		cin >> color;
+		cout << "Your Tesla is " << color;
+	}
+	void checkVin()
+	{
+		cout << "Enter your tesla vin-code: ";
+		cin >> vin;
+		cout << "Your vin  is: " << vin << endl;
+	}
+
+private:
+	string vin;
+	int wheelradius;
+	int wheel;
+};
+
+
+
+
+
+
+
+
+
+
 int main()
 {
-	Fuel Audi;
+	Fuel car;
 	cout << "AUDI:=================" << endl;
-	Audi.drive();
-	Audi.checkFuel();
-	Audi.CarCargo();
-	Electro Tesla;
+	car.drive();
+	car.checkFuel();
+	car.CarCargo();
+	AUDI R8;
+	R8.wheelCount();
+	R8.radius();
+	R8.enginesound();
+	R8.checkFuel();
+	R8.checkColor();
+	Electro cars;
 	cout << "Tesla:================" << endl;
-	Tesla.charging();
-	Tesla.drive();
-	Tesla.enginesound();
+	cars.charging();
+	cars.drive();
+	cars.enginesound();
 	cout << "Hybrid:===============" << endl;
 	Hybrid  prius;
 	prius.usingbothenging();
@@ -153,4 +243,14 @@ int main()
 	Bus Zil("green");
 	Zil.Icandrive();
 	Zil.CarCargo();
+	cout << "Audi=====================" << endl;
+
+	AUDI a4E;// electro audi
+	a4E.wheelCount();
+	a4E.radius();
+	a4E.charging();
+	a4E.usingbothenging();
+
+
+
 }
