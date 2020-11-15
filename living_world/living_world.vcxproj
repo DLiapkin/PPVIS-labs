@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="living.cpp" />
     <ClCompile Include="living_world.cpp" />
   </ItemGroup>
   <ItemGroup>
