@@ -1,0 +1,166 @@
+#include <ctime>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+template <typename T>
+class Node
+{
+private:
+	T node;
+public:
+	Node(T _node = T())
+	{
+		node = _node;
+	}
+	string getObject()
+	{
+		return node;
+	}
+};
+
+class Edge {
+	short begin;
+	short end;
+public:
+	Edge(short _begin = 0, short _end = 0)
+	{
+		begin = _begin;
+		end = _end;
+	}
+	short getBegin()
+	{
+		return begin;
+	}
+	short getEnd()
+	{
+		return end;
+	}
+	void setBegin(short _begin)
+	{
+		begin = _begin;
+	}
+	void setEnd(short _end)
+	{
+		end = _end;
+	}
+};
+
+template <typename T>
+class Graph
+{
+private:
+	vector<Node<T>> node;
+	vector<Edge> edge;
+public:
+	Graph(void) {};
+	~Graph(void) {};
+
+	bool empty(void)
+	{
+		if (node.size() == 0)
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+};
+
+int main(void)
+{
+	short choise = 1;
+	string str_1 = "";
+	string str_2 = "";
+
+	Graph<string>* G = new Graph<string>();
+
+	while (true)
+	{
+		cout << "1. Add node" << endl;
+		cout << "2. Add edge" << endl;
+		cout << "3. Delete node" << endl;
+		cout << "4. Delete edge" << endl;
+		cout << "5. Import from file" << endl;
+		cout << "6. Number of edges and nodes" << endl;
+		cout << "7. Show nodes" << endl;
+		cout << "8. Show edges" << endl;
+		cout << "9. Degree of node" << endl;
+		cout << "10. Iterator for nodes" << endl;
+		cout << "11. Iterator for edges" << endl;
+		cout << "12. Is node exist" << endl;
+		cout << "13. Is edge exist" << endl;
+		cout << "14. Is container empty" << endl;
+		cout << "15. Clear" << endl;
+		cout << "0. Exit" << endl;
+		cout << "Your choise: ";
+
+		cin >> choise;
+		switch (choise)
+		{
+		case 0:
+		{
+			return 0;
+		}
+		case 1:
+		{
+			
+		}
+		case 2:
+		{
+			
+		}
+		case 3:
+		{
+			break;
+		}
+		case 4:
+		{
+			break; 
+		}
+		case 5: {
+			break;
+		}
+		case 6:
+		{
+			
+		}
+		case 7:
+		{
+			
+		}
+		case 8:
+		{
+			
+		}
+		case 9:
+		{
+			
+		}
+		case 10: break;
+		case 11: break;
+		case 12:
+		{
+			
+		}
+		case 13:
+		{
+			
+		}
+		case 14:
+		{
+			
+		}
+		case 15:
+		{
+			
+		}
+		default: break;
+		}
+	}
+}
