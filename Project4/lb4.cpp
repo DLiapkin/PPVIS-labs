@@ -243,6 +243,106 @@ public:
 			cout << node[edge[i].getBegin()].getObject() << " - " << node[edge[i].getEnd()].getObject() << endl;
 		}
 	};
+	class Node_Iterator
+	{
+	private:
+		Graph<T>* graphForIteration;
+		int index;
+	public:
+		Node_Iterator(Graph<T>& graph)
+		{
+			graphForIteration = &graph;
+			index = 0;
+		}
+
+		bool next()
+		{
+			if (graphForIteration->node.size() <= index + 1)
+			{
+				return false;
+			}
+			index++;
+			return true;
+		}
+		bool prev()
+		{
+			if (index == 0)
+			{
+				return false;
+			}
+			index--;
+			return true;
+		}
+
+		void getAdjacentNodes()
+		{
+			short countOfAdjacent = 0;
+			cout << endl;
+			for (int i = 0; i < graphForIteration->node.size(); i++)
+			{
+				if (graphForIteration->isEdgeExist(index, i) == true)
+				{
+					countOfAdjacent++;
+					cout << graphForIteration->node[i].getObject() << ' ';
+				}
+			}
+			if (countOfAdjacent == 0)
+			{
+				cout << "No nodes adjacent to this node";
+			}
+			cout << endl;
+		}
+		void getIncidentEdges()
+		{
+			cout << endl;
+			short countOfIncident = 0;
+			for (int i = 0; i < graphForIteration->node.size(); i++)
+			{
+				if (graphForIteration->isEdgeExist(index, i) == true)
+				{
+					countOfIncident++;
+					cout << graphForIteration->node[index].getObject() << " - " << graphForIteration->node[i].getObject() << endl;
+				}
+			}
+			if (countOfIncident == 0)
+			{
+				cout << "\tNo edges incident to this node";
+			}
+			cout << endl;
+		}
+	};
+
+	class Edge_iterator
+	{
+	private:
+		Graph<T>* graphForIteration;
+		int index;
+
+	public:
+		Edge_iterator(Graph<T>& graph)
+		{
+			graphForIteration = &graph;
+			index = 0;
+		}
+		bool next()
+		{
+			if (graphForIteration->edge.size() <= index + 1)
+			{
+				return false;
+			}
+			index++;
+			return true;
+		}
+		bool prev()
+		{
+			if (index == 0)
+			{
+				return false;
+			}
+			index--;
+			return true;
+		}
+	};
 };
 
 int main(void)
