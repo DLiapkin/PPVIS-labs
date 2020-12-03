@@ -117,6 +117,22 @@ public:
 		}
 	};
 
+	void deleteNode(T _nodeObject)
+	{
+		short _nodeNumber = isNodeExist(_nodeObject);
+		if (_nodeNumber != -1)
+		{
+			node.erase(node.begin() + _nodeNumber);
+			for (int i = 0; i < edge.size(); i++)
+			{
+				if (isEdgeExist(i, _nodeNumber))
+				{
+					deleteEdge(i, _nodeNumber);
+				}
+			}
+		}
+	};
+
 	void deleteEdge(short i, short j)
 	{
 		for (int k = 0; k < edge.size(); k++)
@@ -396,9 +412,30 @@ int main(void)
 			G->addEdge(str_1, str_2);
 			break;
 		}
-		case 3: break;
-		case 4: break;
-		case 5: break;
+		case 3:
+		{
+			cout << endl << "Enter node name: ";
+			cin >> str_1;
+			system("cls");
+			G->deleteNode(str_1);
+			break;
+		}
+		case 4:
+		{
+			cout << endl << "Enter nodes names: ";
+			cin >> str_1 >> str_2;
+			system("cls");
+			G->deleteEdge(str_1, str_2);
+			break;
+		}
+		case 5:
+		{
+			cout << endl << "Enter a file name: ";
+			cin >> str_1;
+			system("cls");
+			G->edgesFromFile(str_1);
+			break;
+		}
 		case 6:
 		{
 			cout << endl << "Nodes: " << G->countOfNodes()
@@ -453,8 +490,108 @@ int main(void)
 			system("cls");
 			break;
 		}
-		case 10: break;
-		case 11: break;
+		case 10:
+		{
+			Graph<string>::Node_Iterator G_iterator(*G);
+			while (choise != 5)
+			{
+				cout << endl << "1. Next node" << endl;
+				cout << "2. Previous node" << endl;
+				cout << "3.Get adjacent nodes" << endl;
+				cout << "4.Get incident edges" << endl;
+				cout << "5.Exit" << endl;
+				cout << "Your choise: ";
+				cin >> choise;
+
+				switch (choise)
+				{
+				case 1:
+				{
+					if (G_iterator.next() == false)
+					{
+						cout << endl << "Iterator is on the last node" << endl;
+					}
+					else
+					{
+						cout << endl << "Iterator moved to next node" << endl;
+					}
+					break;
+				}
+				case 2:
+				{
+					if (G_iterator.prev() == false)
+					{
+						cout << endl << "Iterator is on the first node" << endl;
+					}
+					else
+					{
+						cout << endl << "Iterator moved to previous node" << endl;
+					}
+					break;
+				}
+				case 3:
+				{
+					G_iterator.getAdjacentNodes();
+					break;
+				}
+				case 4:
+				{
+					G_iterator.getIncidentEdges();
+					break;
+				}
+				default:
+					Sleep(1000);
+					system("cls");
+					break;
+				}
+			}
+			break;
+		}
+		case 11: 
+		{
+			Graph<string>::Node_Iterator G_iterator(*G);
+			while (choise != 3)
+			{
+				cout << endl << "1. Next edge" << endl;
+				cout << "2. Previous edge" << endl;
+				cout << "3. Exit" << endl;
+				cout << endl << "Your hoose: ";
+				cin >> choise;
+
+				switch (choise)
+				{
+				case 1:
+				{
+					if (G_iterator.next() == false)
+					{
+						cout << endl << "Iterator is on the last edge" << endl;
+					}
+					else
+					{
+						cout << endl << "Iterator moved to next edge" << endl;
+					}
+					break;
+				}
+				case 2:
+				{
+					if (G_iterator.prev() == false)
+					{
+						cout << endl << "Iterator is on the first edge" << endl;
+					}
+					else
+					{
+						cout << endl << "Iterator moved to previous edge" << endl;
+					}
+					break;
+				}
+				default:
+					Sleep(1000);
+					system("cls");
+					break;
+				}
+			}
+			break;
+		}
 		case 12:
 		{
 			cout << endl << "Enter node name: ";
