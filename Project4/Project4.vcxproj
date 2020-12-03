@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="lb4.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="graph.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{392D23A9-64FF-48B5-9CF4-B0A21C583561}</ProjectGuid>
